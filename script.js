@@ -30,14 +30,23 @@ const quotes = [
     }
 ];
 
-
+const quoteHTML = document.querySelector('.quote--text');
+const authorHTML = document.querySelector('.quote--author');
 const btnHTML = document.querySelector('#generate-quote');
 
-function changeQuote(){
-    const quoteHTML = document.querySelector('.quote--text');
-    const authorHTML = document.querySelector('.quote--author');
+let primeraCitaMostrada = false;
 
-    const randomIndex = Math.floor(Math.random() * quotes.length);
+function changeQuote() {
+    let randomIndex;
+
+    // Si es el primer clic, muestra la cita de la posición cero.
+    if (!primeraCitaMostrada) {
+        randomIndex = 0;
+        primeraCitaMostrada = true;
+    } else {
+        // Para clics siguientes, obtiene un índice aleatorio.
+        randomIndex = Math.floor(Math.random() * quotes.length);
+    }
 
     const quote = quotes[randomIndex].quote;
     const author = quotes[randomIndex].author;
