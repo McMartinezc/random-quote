@@ -29,3 +29,21 @@ const quotes = [
         author: " Tyne Daly"
     }
 ];
+
+
+const btnHTML = document.querySelector('#generate-quote');
+
+function changeQuote(){
+    const quoteHTML = document.querySelector('.quote--text');
+    const authorHTML = document.querySelector('.quote--author');
+
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+
+    const quote = quotes[randomIndex].quote;
+    const author = quotes[randomIndex].author;
+
+    quoteHTML.textContent = quote;
+    authorHTML.textContent = author;
+}
+
+btnHTML.addEventListener("click" , changeQuote);
